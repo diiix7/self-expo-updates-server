@@ -1,6 +1,6 @@
 # Self expo updates server with an app client example
 
-## NB: Arborescence
+## Nb: Arborescence
 custom-expo-updates-server — expo-updates-server
                            - app
                            - README.md
@@ -8,9 +8,9 @@ custom-expo-updates-server — expo-updates-server
 
 ## Application:
 1. expo build:configure
-2. expo update configure
+2. expo update:configure
 3. Éditer le fichier app.json:
-	"runtimeVersion": "1.0.0",
+    "runtimeVersion": "1.0.0",
     "updates": {
         "url": "http://192.168.86.118:3000/api/manifest",
         "enabled": true,
@@ -35,11 +35,11 @@ custom-expo-updates-server — expo-updates-server
 
 4. Remplacer « 192.168.86.118:3000 » par le bon url
 
-5. Ajouter le nom du package a android dans app.json: "package": "com.—.— »
+5. Ajouter le nom du package a android dans app.json: "package": "com.—.—"
 
 6. Choisir le bon runtimeVersion, c’est l’identité de l’applications dans le serveur (il est unique et ne changea pas et ne dois pas être dupliqué)
 
-7. Ne pas commettre le fichier ./code-signing/certificate.pem (le certificat se trouve dans le manifest après avoir exécuté npx expo prebuild (plus tard)) 
+7. Ne pas omettre le fichier ./code-signing/certificate.pem (le certificat se trouve dans le manifest après avoir exécuté npx expo prebuild (plus tard)) 
 
 8. Installer les packages expo-build-properties et exécuter yarn android --variant release pour la version release de l’application, ou utiliser eas build pour construire l’apk (en spécifiant les environnements, le buildType et le gradleCommand dans eas.json
 
@@ -53,11 +53,11 @@ custom-expo-updates-server — expo-updates-server
 
 3. Dans le meme dossier que exportClientExpoConfig.js., rééditer le script publish.sh en modifiant le nom du dossier le l’application (en spécifiant le chemin correct si le serveur n’est pas déployé)
 	…	
-	cd ../applications/app
+	cd ../app
 	npx expo export
 	cd ../expo-updates-server
 	rm -rf updates/$directory/
-	cp -r ../applications/app/dist/ updates/$directory
+	cp -r ../app/dist/ updates/$directory
 	…
 
 4. Dans le package.json du serveur, ajouter le script d’export propre a l’application en y complétant le nom du projet (du dossier de l’application), et son runtimeVersion. Ce dernier sera le nom du dossier de mis a jour de l’application dans le dossier updates/ du serveur
