@@ -1,7 +1,7 @@
 # Self expo updates server with an app client example
 
 ## Nb: Arborescence
-custom-expo-updates-server — expo-updates-server
+self-expo-updates-server — expo-updates-server
                            - app
                            - README.md
 
